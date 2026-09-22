@@ -25,8 +25,8 @@
   .en{display:none} body[data-lang="en"] .en{display:revert} body[data-lang="en"] .it{display:none}
   /* header */
   header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:16px}
-  .brand img{height:56px;width:auto;display:block}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:84px;gap:16px}
+  .brand img{height:68px;width:auto;display:block}
   .menu{display:flex;gap:26px;align-items:center;font-weight:500;font-size:.95rem}
   .menu a{color:var(--ink);text-decoration:none} .menu a:hover{color:var(--accent2)}
   .btn{display:inline-block;background:var(--navy);color:#fff!important;text-decoration:none;padding:12px 22px;border-radius:999px;font-weight:600;border:0;cursor:pointer;font-size:.95rem;transition:.2s}
@@ -90,6 +90,15 @@
     .menu.open{display:flex} .burger{display:block}
   }
   @media (max-width:560px){.g4,.g3,.row{grid-template-columns:1fr} .kpis{grid-template-columns:1fr 1fr} section{padding:60px 0} .hero{padding:64px 0}}
+
+  /* privacy */
+  .modal{position:fixed;inset:0;z-index:100;background:rgba(10,20,40,.55);display:flex;align-items:center;justify-content:center;padding:20px}
+  .modal[hidden]{display:none}
+  .modal .box{background:#fff;color:#1c2430;max-width:720px;width:100%;max-height:85vh;overflow:auto;border-radius:12px;padding:28px 28px 22px;box-shadow:0 20px 60px rgba(0,0,0,.35);font-size:15px;line-height:1.55}
+  .modal .box h3{margin:0 0 12px;font-size:22px}
+  .modal .box p{margin:0 0 10px}
+  .modal .box b{color:#0e2a47}
+  .modal .close{float:right;border:0;background:#eef2f6;border-radius:999px;width:34px;height:34px;font-size:18px;cursor:pointer;margin:-6px -6px 0 12px}
 </style>
 </head>
 <body data-lang="it">
@@ -281,6 +290,42 @@
     if (r.ok) { form.reset(); document.getElementById('okMsg').style.display = 'block'; }
     else alert('Invio non riuscito, scrivici a tosagiketh@gmail.com');
   });
+</script>
+
+<div id="privacyModal" class="modal" hidden>
+  <div class="box" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+    <button class="close" id="privacyClose" aria-label="Chiudi">×</button>
+    <h3 id="privacyTitle"><span class="it">Informativa privacy</span><span class="en">Privacy notice</span></h3>
+    <div class="it">
+      <p><b>Titolare del trattamento:</b> TOSAGI KETH LTD, Unit G02, Eurocity, Europort Avenue, Gibraltar GX11 1AA, società registrata a Gibilterra n. 126703, email tosagiketh@gmail.com.</p>
+      <p><b>Dati raccolti:</b> quelli che inserisci nel modulo di contatto (nome e cognome, azienda, email, telefono, messaggio) o che ci invii per email.</p>
+      <p><b>Finalità e base giuridica:</b> rispondere alla tua richiesta e, se lo chiedi, preparare una proposta. La base giuridica è il tuo consenso e l'esecuzione di misure precontrattuali.</p>
+      <p><b>Conservazione:</b> per il tempo necessario a gestire la richiesta e comunque non oltre 24 mesi dall'ultimo contatto, salvo obblighi di legge o rapporto contrattuale in corso.</p>
+      <p><b>Destinatari:</b> i dati non vengono venduti né ceduti. Possono trattarli fornitori tecnici (posta elettronica, hosting) che agiscono per nostro conto.</p>
+      <p><b>Cookie:</b> il sito non usa cookie di profilazione né strumenti di tracciamento. Nel browser viene salvata solo la preferenza della lingua.</p>
+      <p><b>Diritti:</b> puoi chiedere accesso, rettifica, cancellazione, limitazione e portabilità dei dati, opporti al trattamento o revocare il consenso scrivendo a tosagiketh@gmail.com. Puoi presentare reclamo all'autorità di controllo competente.</p>
+      <p><b>Normativa:</b> Regolamento (UE) 2016/679 (GDPR) e Data Protection Act 2004 di Gibilterra. Ultimo aggiornamento: 22 settembre 2026.</p>
+    </div>
+    <div class="en">
+      <p><b>Data controller:</b> TOSAGI KETH LTD, Unit G02, Eurocity, Europort Avenue, Gibraltar GX11 1AA, company registered in Gibraltar no. 126703, email tosagiketh@gmail.com.</p>
+      <p><b>Data collected:</b> what you enter in the contact form (name, company, email, phone, message) or send us by email.</p>
+      <p><b>Purpose and legal basis:</b> to answer your request and, if you ask, to prepare a proposal. The legal basis is your consent and the performance of pre-contractual steps.</p>
+      <p><b>Retention:</b> for as long as needed to handle the request and in any case no longer than 24 months from the last contact, unless a legal obligation or an ongoing contract requires otherwise.</p>
+      <p><b>Recipients:</b> data is never sold or transferred. It may be processed by technical providers (email, hosting) acting on our behalf.</p>
+      <p><b>Cookies:</b> the site uses no profiling cookies or tracking tools. Only your language preference is stored in your browser.</p>
+      <p><b>Your rights:</b> you can request access, rectification, erasure, restriction and portability of your data, object to processing or withdraw consent by writing to tosagiketh@gmail.com. You can lodge a complaint with the competent supervisory authority.</p>
+      <p><b>Legal framework:</b> Regulation (EU) 2016/679 (GDPR) and the Gibraltar Data Protection Act 2004. Last updated: 22 September 2026.</p>
+    </div>
+  </div>
+</div>
+<script>
+  (function(){
+    const m=document.getElementById('privacyModal'), l=document.getElementById('privacyLink'), c=document.getElementById('privacyClose');
+    const open=e=>{e.preventDefault(); m.hidden=false;}, close=()=>{m.hidden=true;};
+    l.addEventListener('click',open); c.addEventListener('click',close);
+    m.addEventListener('click',e=>{ if(e.target===m) close(); });
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+  })();
 </script>
 </body>
 </html>

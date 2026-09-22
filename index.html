@@ -6,8 +6,7 @@
 <title>Tosagi Keth Ltd – Consulenza, marketing e automazione per le aziende</title>
 <meta name="description" content="Tosagi Keth Ltd (Gibilterra) affianca imprenditori e aziende di ogni settore: consulenza direzionale, marketing digitale e sistemi di automazione che tolgono lavoro manuale ed errori.">
 <link rel="icon" href="logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts.css">
 <style>
   :root{
     --navy:#0f1f3d; --navy2:#16305e; --ink:#1c2333; --muted:#5b6474; --line:#e6e9ef;
@@ -246,7 +245,7 @@
       </select>
       <label for="message"><span class="it">Messaggio</span><span class="en">Message</span></label>
       <textarea id="message" name="message" required></textarea>
-      <div class="consent"><input type="checkbox" id="consent" required><label for="consent" style="margin:0;font-weight:400"><span class="it">Acconsento al trattamento dei dati per essere ricontattato (GDPR).</span><span class="en">I consent to the processing of my data to be contacted (GDPR).</span></label></div>
+      <div class="consent"><input type="checkbox" id="consent" required><label for="consent" style="margin:0;font-weight:400"><span class="it">Acconsento al trattamento dei dati per essere ricontattato (<a href="#" class="privacyOpen">informativa privacy</a>).</span><span class="en">I consent to the processing of my data to be contacted (<a href="#" class="privacyOpen">privacy notice</a>).</span></label></div>
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <button class="btn" type="submit"><span class="it">Invia il messaggio</span><span class="en">Send message</span></button>
       <div class="ok" id="okMsg"><span class="it">Grazie, ti rispondiamo entro un giorno lavorativo.</span><span class="en">Thank you, we'll reply within one working day.</span></div>
@@ -322,7 +321,7 @@
   (function(){
     const m=document.getElementById('privacyModal'), l=document.getElementById('privacyLink'), c=document.getElementById('privacyClose');
     const open=e=>{e.preventDefault(); m.hidden=false;}, close=()=>{m.hidden=true;};
-    l.addEventListener('click',open); c.addEventListener('click',close);
+    l.addEventListener('click',open); document.querySelectorAll('.privacyOpen').forEach(a=>a.addEventListener('click',open)); c.addEventListener('click',close);
     m.addEventListener('click',e=>{ if(e.target===m) close(); });
     document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
   })();

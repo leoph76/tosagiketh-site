@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tosagi Keth Ltd – Consulenza, marketing e automazione per le aziende</title>
+<meta name="description" content="Tosagi Keth Ltd (Gibilterra) affianca imprenditori e aziende di ogni settore: consulenza direzionale, marketing digitale e sistemi di automazione che tolgono lavoro manuale ed errori.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f1f3d; --navy2:#16305e; --ink:#1c2333; --muted:#5b6474; --line:#e6e9ef;
+    --bg:#ffffff; --soft:#f4f6fa; --accent:#c9a24d; --accent2:#0f766e; --white:#fff;
+    --radius:14px; --shadow:0 10px 30px rgba(15,31,61,.08);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.15;margin:0 0 .5em}
+  h1{font-size:clamp(2rem,4.5vw,3.4rem)} h2{font-size:clamp(1.6rem,3vw,2.3rem)} h3{font-size:1.2rem}
+  p{margin:0 0 1em}
+  a{color:var(--accent2)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .en{display:none} body[data-lang="en"] .en{display:revert} body[data-lang="en"] .it{display:none}
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:16px}
+  .brand img{height:56px;width:auto;display:block}
+  .menu{display:flex;gap:26px;align-items:center;font-weight:500;font-size:.95rem}
+  .menu a{color:var(--ink);text-decoration:none} .menu a:hover{color:var(--accent2)}
+  .btn{display:inline-block;background:var(--navy);color:#fff!important;text-decoration:none;padding:12px 22px;border-radius:999px;font-weight:600;border:0;cursor:pointer;font-size:.95rem;transition:.2s}
+  .btn:hover{background:var(--navy2);transform:translateY(-1px)}
+  .btn.gold{background:var(--accent);color:var(--navy)!important} .btn.gold:hover{background:#d8b45f}
+  .lang{border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:.8rem;background:#fff;cursor:pointer}
+  .burger{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer}
+  /* hero */
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 55%,#1d4a7a 100%);color:#fff;padding:96px 0 88px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;inset:auto -10% -40% auto;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,rgba(201,162,77,.25),transparent 60%)}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+  .hero p.lead{font-size:1.15rem;color:#dfe6f3;max-width:56ch}
+  .hero .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+  .hero .btn.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.6)} .hero .btn.ghost:hover{background:rgba(255,255,255,.1)}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .kpi{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:18px 16px}
+  .kpi b{display:block;font-family:"Playfair Display",serif;font-size:1.9rem;color:var(--accent)}
+  .kpi span{font-size:.85rem;color:#dfe6f3}
+  /* sections */
+  section{padding:84px 0}
+  section.soft{background:var(--soft)}
+  .eyebrow{letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;font-weight:600;color:var(--accent2);margin-bottom:10px}
+  .center{text-align:center} .center p{margin-left:auto;margin-right:auto;max-width:64ch}
+  .grid{display:grid;gap:22px;margin-top:38px}
+  .g4{grid-template-columns:repeat(4,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;box-shadow:var(--shadow)}
+  .card h3{margin-top:10px}
+  .card .ico{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--accent2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem}
+  .card p{color:var(--muted);font-size:.97rem;margin:0}
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .about .visual{aspect-ratio:4/3;border-radius:var(--radius);background:linear-gradient(160deg,#dfe6f3,#f4f6fa 40%,#e9e2cf);position:relative;overflow:hidden;box-shadow:var(--shadow)}
+  .about .visual img{position:absolute;inset:0;margin:auto;width:70%;height:auto;opacity:.9}
+  .list{list-style:none;padding:0;margin:0 0 20px}
+  .list li{padding:8px 0 8px 30px;position:relative;color:var(--ink)}
+  .list li:before{content:"✓";position:absolute;left:0;top:8px;color:var(--accent2);font-weight:700}
+  .cta{background:var(--navy);color:#fff;text-align:center;padding:72px 0}
+  .cta h2{color:#fff} .cta p{color:#dfe6f3}
+  .case{border-left:4px solid var(--accent);padding-left:22px}
+  .case blockquote{margin:0;font-size:1.05rem;color:var(--ink)}
+  /* contact */
+  .contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+  .info div{margin-bottom:18px} .info b{display:block;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  form{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  label{display:block;font-size:.85rem;font-weight:600;margin:12px 0 6px}
+  input,textarea,select{width:100%;padding:12px 14px;border:1px solid #cfd5e0;border-radius:10px;font:inherit;background:#fff}
+  input:focus,textarea:focus{outline:2px solid var(--accent2);border-color:transparent}
+  textarea{min-height:130px;resize:vertical}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--muted);margin:14px 0 18px}
+  .consent input{width:auto;margin-top:4px}
+  .note{font-size:.82rem;color:var(--muted);margin-top:12px}
+  .ok{display:none;background:#e8f7f2;border:1px solid #bfe7d8;color:#0f5e50;padding:14px;border-radius:10px;margin-top:14px}
+  footer{background:#0b1730;color:#b9c3d6;padding:44px 0 28px;font-size:.9rem}
+  footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+  footer a{color:#dfe6f3;text-decoration:none} footer a:hover{color:#fff}
+  footer .fine{border-top:1px solid rgba(255,255,255,.12);margin-top:30px;padding-top:18px;font-size:.8rem;color:#8d99b2}
+  @media (max-width:900px){
+    .hero .wrap,.about,.contact,footer .cols{grid-template-columns:1fr}
+    .g4,.g3{grid-template-columns:1fr 1fr} .kpis{grid-template-columns:repeat(3,1fr)}
+    .menu{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;flex-direction:column;padding:18px 24px;border-bottom:1px solid var(--line)}
+    .menu.open{display:flex} .burger{display:block}
+  }
+  @media (max-width:560px){.g4,.g3,.row{grid-template-columns:1fr} .kpis{grid-template-columns:1fr 1fr} section{padding:60px 0} .hero{padding:64px 0}}
+</style>
+</head>
+<body data-lang="it">
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img src="logo.png" alt="Tosagi Keth Ltd"></a>
+    <nav class="menu" id="menu">
+      <a href="#top"><span class="it">Home</span><span class="en">Home</span></a>
+      <a href="#chi-siamo"><span class="it">Chi siamo</span><span class="en">About</span></a>
+      <a href="#servizi"><span class="it">Servizi</span><span class="en">Services</span></a>
+      <a href="#contatti"><span class="it">Contattaci</span><span class="en">Contact</span></a>
+      <a class="btn gold" href="#contatti"><span class="it">Contattaci ora</span><span class="en">Contact us</span></a>
+      <button class="lang" id="langBtn" type="button" title="Language">EN</button>
+    </nav>
+    <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" style="color:var(--accent)"><span class="it">Gibilterra · Italia</span><span class="en">Gibraltar · Italy</span></div>
+      <h1 class="it">Consulenza, marketing e automazione per far crescere la tua azienda</h1>
+      <h1 class="en">Consulting, marketing and automation to grow your business</h1>
+      <p class="lead it">Tosagi Keth Ltd affianca imprenditori e aziende di ogni settore. Decisioni prese sui numeri, marketing che si misura sui risultati veri, sistemi che tolgono lavoro manuale ed errori dai processi di ogni giorno.</p>
+      <p class="lead en">Tosagi Keth Ltd works alongside entrepreneurs and companies in any sector. Decisions based on numbers, marketing measured on real results, and systems that remove manual work and errors from everyday processes.</p>
+      <div class="actions">
+        <a class="btn gold" href="#contatti"><span class="it">Contattaci ora</span><span class="en">Contact us</span></a>
+        <a class="btn ghost" href="#servizi"><span class="it">Scopri i servizi</span><span class="en">Our services</span></a>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><b>3</b><span class="it">aree: consulenza, marketing, automazione</span><span class="en">areas: consulting, marketing, automation</span></div>
+      <div class="kpi"><b>24/7</b><span class="it">sistemi che lavorano anche di notte</span><span class="en">systems that work overnight</span></div>
+      <div class="kpi"><b>1</b><span class="it">interlocutore per strategia e tecnica</span><span class="en">contact for strategy and technology</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap center">
+    <div class="eyebrow"><span class="it">I problemi che risolviamo</span><span class="en">The problems we solve</span></div>
+    <h2 class="it">Identifichiamo la giusta strategia</h2>
+    <h2 class="en">We identify the right strategy</h2>
+    <p class="it">Ogni azienda che cresce si trova davanti a sfide che crescono con lei. Riconoscerle in tempo è la differenza tra crescere e affogare.</p>
+    <p class="en">Every growing company faces challenges that grow with it. Recognising them in time is the difference between growing and drowning.</p>
+    <div class="grid g4">
+      <div class="card"><div class="ico">1</div><h3 class="it">Lavoro che cresce, errori che crescono</h3><h3 class="en">More work, more errors</h3><p class="it">Controlli fatti a mano, dati copiati da un programma all'altro, rilavorazioni e ritardi: ogni passaggio manuale costa tempo e reputazione.</p><p class="en">Manual checks, data copied from one program to another, rework and delays: every manual step costs time and reputation.</p></div>
+      <div class="card"><div class="ico">2</div><h3 class="it">Pubblicità che costa e non si misura</h3><h3 class="en">Advertising that costs and isn't measured</h3><p class="it">Report pieni di percentuali, ma nessuno dice quanti clienti nuovi veri porta ogni euro speso in pubblicità.</p><p class="en">Reports full of percentages, but nobody says how many real new customers each euro brings.</p></div>
+      <div class="card"><div class="ico">3</div><h3 class="it">Decisioni senza numeri</h3><h3 class="en">Decisions without numbers</h3><p class="it">Prezzi, sconti, investimenti, assunzioni: scelte fatte a sensazione perché i dati stanno in dieci posti diversi.</p><p class="en">Prices, discounts, investments, hiring: choices made by feel because the data sits in ten different places.</p></div>
+      <div class="card"><div class="ico">4</div><h3 class="it">Sistemi che non si parlano</h3><h3 class="en">Systems that don't talk to each other</h3><p class="it">Gestionale, sito, produzione, fatture e messaggi ai clienti: ognuno per conto suo, e in mezzo una persona che copia dati.</p><p class="en">Management software, website, operations, invoicing and customer messages: each on its own, with a person copying data in between.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="servizi">
+  <div class="wrap center">
+    <div class="eyebrow"><span class="it">Servizi</span><span class="en">Services</span></div>
+    <h2 class="it">Soluzioni per le tue esigenze</h2>
+    <h2 class="en">Solutions for your needs</h2>
+    <p class="it">Tre aree che lavorano insieme. Con il nostro supporto puoi concentrarti sulla crescita: al resto pensiamo noi.</p>
+    <p class="en">Three areas that work together. With our support you can focus on growth: we take care of the rest.</p>
+    <div class="grid g3">
+      <div class="card"><div class="ico">A</div><h3 class="it">Consulenza direzionale</h3><h3 class="en">Management consulting</h3><p class="it">Affiancamento nelle decisioni, analisi di mercato e concorrenza, conto economico per prodotto, piani di crescita con obiettivi e date.</p><p class="en">Support in decision-making, market and competitor analysis, product-level profitability, growth plans with targets and dates.</p></div>
+      <div class="card"><div class="ico">B</div><h3 class="it">Marketing digitale</h3><h3 class="en">Digital marketing</h3><p class="it">Campagne Google e Meta misurate sui risultati veri, gestione di WhatsApp Business (campagne, messaggi automatici, assistenza ai clienti), contenuti, sito ed e-commerce, listini e promozioni con il conto già fatto.</p><p class="en">Google and Meta campaigns measured on real results, WhatsApp Business management (campaigns, automated messages, customer care), content, website and e-commerce, price lists and promotions with the numbers already done.</p></div>
+      <div class="card"><div class="ico">C</div><h3 class="it">Automazione</h3><h3 class="en">Automation</h3><p class="it">Progettazione e sviluppo di sistemi che fanno da soli il lavoro ripetitivo: controlli, passaggi tra programmi, documenti, avvisi ai clienti, report per la direzione. Con manutenzione e controllo continuo.</p><p class="en">Design and development of systems that do the repetitive work on their own: checks, hand-offs between programs, documents, customer notifications, management reports. With ongoing maintenance and monitoring.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="soft" id="chi-siamo">
+  <div class="wrap about">
+    <div class="visual"><img src="logo.png" alt="Tosagi Keth"></div>
+    <div>
+      <div class="eyebrow"><span class="it">Chi siamo</span><span class="en">About us</span></div>
+      <h2 class="it">Un viaggio di crescita, con i numeri in mano</h2>
+      <h2 class="en">A journey of growth, with the numbers in hand</h2>
+      <p class="it">Tosagi Keth Ltd nasce nel 2026 a Gibilterra dall'esperienza diretta di chi ha gestito aziende, non solo consigliato. Conosciamo il lavoro di chi produce, di chi vende e di chi amministra, e lo facciamo funzionare insieme.</p>
+      <p class="en">Tosagi Keth Ltd was founded in 2026 in Gibraltar from the first-hand experience of people who have run companies, not just advised them. We know the work of those who produce, sell and administer, and we make it run together.</p>
+      <ul class="list">
+        <li class="it">Numeri veri: ogni proposta arriva con il conto già fatto.</li><li class="en">Real numbers: every proposal comes with the sums already done.</li>
+        <li class="it">Roba pronta: sistemi consegnati funzionanti e in produzione, non presentazioni.</li><li class="en">Ready to use: systems delivered working and in production, not slide decks.</li>
+        <li class="it">Un solo interlocutore per strategia, marketing e tecnica.</li><li class="en">A single contact for strategy, marketing and technology.</li>
+      </ul>
+      <a class="btn" href="#contatti"><span class="it">Parliamone</span><span class="en">Let's talk</span></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow"><span class="it">Un esempio del nostro lavoro</span><span class="en">An example of our work</span></div>
+    <h2 class="it">E-commerce di stampa: dall'ordine alla spedizione senza mani</h2>
+    <h2 class="en">Print e-commerce: from order to shipping, hands-free</h2>
+    <div class="grid g2">
+      <div class="case">
+        <blockquote class="it">Per un'azienda italiana di stampa con otto macchine e circa mille ordini al mese abbiamo progettato e messo in produzione il sistema che controlla i file appena arriva l'ordine, prepara i lavori per le macchine, stampa le etichette, avvisa i clienti e produce i report per la direzione. Il controllo del file passa da ore a pochi minuti; gli errori vengono fermati prima di andare in stampa.</blockquote>
+        <blockquote class="en">For an Italian printing company with eight machines and about a thousand orders a month we designed and put into production the system that checks files as soon as the order arrives, prepares jobs for the machines, prints labels, notifies customers and produces management reports. File checking went from hours to minutes; errors are stopped before they reach the press.</blockquote>
+      </div>
+      <div class="grid g2" style="margin-top:0">
+        <div class="card"><b style="font-size:1.6rem;font-family:'Playfair Display',serif">≈ 1.000</b><p class="it">ordini al mese seguiti dal sistema</p><p class="en">orders a month handled by the system</p></div>
+        <div class="card"><b style="font-size:1.6rem;font-family:'Playfair Display',serif">8</b><p class="it">macchine coordinate</p><p class="en">machines coordinated</p></div>
+        <div class="card"><b style="font-size:1.6rem;font-family:'Playfair Display',serif">min</b><p class="it">controllo file in pochi minuti dall'ordine</p><p class="en">file check within minutes of the order</p></div>
+        <div class="card"><b style="font-size:1.6rem;font-family:'Playfair Display',serif">24/7</b><p class="it">controllo e avvisi automatici</p><p class="en">automatic monitoring and alerts</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2 class="it">Sei pronto a fare il primo passo?</h2>
+    <h2 class="en">Ready to take the first step?</h2>
+    <p class="it">Raccontaci come lavori oggi. Ti diciamo in una riunione cosa si può automatizzare e cosa rende, con i numeri.</p>
+    <p class="en">Tell us how you work today. In one meeting we'll tell you what can be automated and what pays off, with numbers.</p>
+    <a class="btn gold" href="#contatti"><span class="it">Contattaci ora</span><span class="en">Contact us now</span></a>
+  </div>
+</section>
+
+<section id="contatti">
+  <div class="wrap contact">
+    <div class="info">
+      <div class="eyebrow"><span class="it">Contatti</span><span class="en">Contact</span></div>
+      <h2 class="it">Scrivici</h2><h2 class="en">Write to us</h2>
+      <div><b class="it">Sede</b><b class="en">Registered office</b>Tosagi Keth Ltd<br>Unit G02, Eurocity, Europort Avenue<br>Gibraltar GX11 1AA</div>
+      <div><b>Email</b><a href="mailto:tosagiketh@gmail.com">tosagiketh@gmail.com</a></div>
+      <div><b class="it">Società</b><b class="en">Company</b><span class="it">Registrata a Gibilterra, n. 126703</span><span class="en">Registered in Gibraltar, no. 126703</span></div>
+    </div>
+    <form id="contactForm" action="https://formspree.io/f/INSERISCI_ID" method="POST">
+      <div class="row">
+        <div><label for="name"><span class="it">Nome e cognome</span><span class="en">Full name</span></label><input id="name" name="name" required></div>
+        <div><label for="company"><span class="it">Azienda</span><span class="en">Company</span></label><input id="company" name="company"></div>
+      </div>
+      <div class="row">
+        <div><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+        <div><label for="phone"><span class="it">Telefono / WhatsApp</span><span class="en">Phone / WhatsApp</span></label><input id="phone" name="phone"></div>
+      </div>
+      <label for="topic"><span class="it">Di cosa hai bisogno?</span><span class="en">What do you need?</span></label>
+      <select id="topic" name="topic">
+        <option value="consulenza">Consulenza direzionale / Consulting</option>
+        <option value="marketing">Marketing</option>
+        <option value="automazione">Automazione / Automation</option>
+        <option value="altro">Altro / Other</option>
+      </select>
+      <label for="message"><span class="it">Messaggio</span><span class="en">Message</span></label>
+      <textarea id="message" name="message" required></textarea>
+      <div class="consent"><input type="checkbox" id="consent" required><label for="consent" style="margin:0;font-weight:400"><span class="it">Acconsento al trattamento dei dati per essere ricontattato (GDPR).</span><span class="en">I consent to the processing of my data to be contacted (GDPR).</span></label></div>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <button class="btn" type="submit"><span class="it">Invia il messaggio</span><span class="en">Send message</span></button>
+      <div class="ok" id="okMsg"><span class="it">Grazie, ti rispondiamo entro un giorno lavorativo.</span><span class="en">Thank you, we'll reply within one working day.</span></div>
+      <p class="note it">Rispondiamo di norma entro un giorno lavorativo.</p>
+      <p class="note en">We usually reply within one working day.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><img src="logo.png" alt="Tosagi Keth" style="height:54px;filter:invert(1);opacity:.9"><p class="it" style="margin-top:12px">Consulenza direzionale, marketing digitale e sviluppo di sistemi di automazione per aziende di ogni settore.</p><p class="en" style="margin-top:12px">Management consulting, digital marketing and automation systems for companies in any sector.</p></div>
+      <div><b style="color:#fff"><span class="it">Link utili</span><span class="en">Links</span></b><br><a href="#top">Home</a><br><a href="#chi-siamo"><span class="it">Chi siamo</span><span class="en">About</span></a><br><a href="#servizi"><span class="it">Servizi</span><span class="en">Services</span></a><br><a href="#contatti"><span class="it">Contattaci</span><span class="en">Contact</span></a></div>
+      <div><b style="color:#fff"><span class="it">Contatti</span><span class="en">Contact</span></b><br>Unit G02, Eurocity, Europort Avenue, Gibraltar GX11 1AA<br><a href="mailto:tosagiketh@gmail.com">tosagiketh@gmail.com</a></div>
+    </div>
+    <div class="fine">© 2026 Tosagi Keth Ltd · <span class="it">Società registrata a Gibilterra n. 126703</span><span class="en">Company registered in Gibraltar no. 126703</span> · <a href="#" id="privacyLink">Privacy</a></div>
+  </div>
+</footer>
+
+<script>
+  // lingua
+  const btn = document.getElementById('langBtn');
+  const setLang = l => { document.body.dataset.lang = l; document.documentElement.lang = l; btn.textContent = l === 'it' ? 'EN' : 'IT'; try{localStorage.setItem('tk_lang', l)}catch(e){} };
+  btn.addEventListener('click', () => setLang(document.body.dataset.lang === 'it' ? 'en' : 'it'));
+  try{ const s = localStorage.getItem('tk_lang'); if (s) setLang(s); }catch(e){}
+  // menu mobile
+  document.getElementById('burger').addEventListener('click', () => document.getElementById('menu').classList.toggle('open'));
+  // form: se l'indirizzo Formspree non è ancora impostato, apre la mail con il testo già scritto
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', async e => {
+    if (form.action.includes('INSERISCI_ID')) {
+      e.preventDefault();
+      const f = new FormData(form);
+      const body = `Nome: ${f.get('name')}\nAzienda: ${f.get('company')}\nEmail: ${f.get('email')}\nTelefono: ${f.get('phone')}\nArgomento: ${f.get('topic')}\n\n${f.get('message')}`;
+      location.href = 'mailto:tosagiketh@gmail.com?subject=' + encodeURIComponent('Richiesta dal sito Tosagi Keth') + '&body=' + encodeURIComponent(body);
+      return;
+    }
+    e.preventDefault();
+    const r = await fetch(form.action, {method:'POST', body:new FormData(form), headers:{'Accept':'application/json'}});
+    if (r.ok) { form.reset(); document.getElementById('okMsg').style.display = 'block'; }
+    else alert('Invio non riuscito, scrivici a tosagiketh@gmail.com');
+  });
+</script>
+</body>
+</html>
